@@ -11,6 +11,11 @@ UoM.attachSchema(new SimpleSchema({
   },
   unit: {
     type: Number,
-    label: "Unit value",
+    label: "Value",
+  },
+  unitname: {
+    type: String,
+    label: "Unit",
+    allowedValues: ['Unit', 'kg' , 'Litre']
   }
 }));

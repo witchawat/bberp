@@ -1,5 +1,5 @@
 <template name="uom">
-  <li><h4>{{name}} - {{unit}}</h4></li>
+  <li><h4>{{name}} - {{unit}} {{unitname}}</h4></li>
 
 </template>
 
@@ -16,6 +16,7 @@
       </div>
       <div class="col-xs-6 col-md-4 right-pane-bg">
         <h1>Add new UoM</h1>
+        <h3><i>ถุง - 50 kg</i></h3>
         {{> quickForm collection="UoM" id="insertUoMForm" type="insert"}}</div>
     </div>
   </div>

@@ -23,6 +23,10 @@ Products.attachSchema(new SimpleSchema({
   weight: {
     type: Number,
     label: "Weight of 1 unit of product",
+    autoValue: function(){
+      var w = this.field('unit');
+      return w.unit;
+    }
   },
   totalQuantity: { //In Unit
     type: Number,
@@ -38,6 +42,11 @@ Products.attachSchema(new SimpleSchema({
       }
     },
     denyInsert: true,
+    optional: true
+  },
+  price: { //Last Price that buy/sell
+    type: Number,
+    label: "Price",
     optional: true
   },
   // lots: [

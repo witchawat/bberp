@@ -2,14 +2,17 @@
   <!-- {{> quickForm collection="Products" id="insertProductForm" type="insert"}} -->
   <h4>Add new Product</h4>
   {{#autoForm id="insertProductForm" type="insert" collection="Products"}}
+  <fieldset>
     {{> afQuickField name='name'}}
     {{> afQuickField name='category' options=listCategories}}
-    {{> afQuickField name='unit'}}
-    {{> afQuickField name='weight'}}
+    {{> afQuickField name='unit' id="selectuom" options=listUoMs}}
+    {{> afQuickField name='weight' options=getWeight}}
     {{> afQuickField name='totalQuantity'}}
     {{> afQuickField name='lots'}}
     <div>
-      <button type="submit">Submit</button>
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="reset" class="btn btn-default">Reset</button>
     </div>
+  </fieldset>
   {{/autoForm}}
 </template>

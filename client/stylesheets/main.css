@@ -9,3 +9,7 @@ body {
 .left-pane-bg {
   background-color: gainsboro;
 }
+
+.maintemplate {
+  font-size: .7em;
+}

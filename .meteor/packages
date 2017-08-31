@@ -29,3 +29,4 @@ accounts-ui
 accounts-base
 aldeed:schema-deny
 mrt:flash-messages
+jquery

@@ -1,5 +1,5 @@
-import { Mongo } from 'meteor/mongo';
 import SimpleSchema  from 'simpl-schema';
+
 SimpleSchema.extendOptions(['autoform']);
 
 Products = new Mongo.Collection("products");
@@ -50,6 +50,7 @@ Products.attachSchema(new SimpleSchema({
   // ]
   lots:{
     type: Array,
+    optional: true
   },
   'lots.$': Object,
   'lots.$.no': String,

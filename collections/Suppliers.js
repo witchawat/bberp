@@ -31,6 +31,7 @@ Suppliers.attachSchema(new SimpleSchema({
   },
   createdAt: {
     type: Date,
+    autoform: { type: 'hidden' },
     autoValue: function() {
       if (this.isInsert) {
         return new Date();

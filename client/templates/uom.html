@@ -1,0 +1,23 @@
+<template name="uom">
+  <li><h4>{{name}} - {{unit}}</h4></li>
+
+</template>
+
+
+<template name="UoMIndex">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 left-pane-bg">
+        <ul>
+          {{#each UoMs}}
+            {{>uom}}
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-xs-6 col-md-4 right-pane-bg">
+        <h1>Add new UoM</h1>
+        {{> quickForm collection="UoM" id="insertUoMForm" type="insert"}}</div>
+    </div>
+  </div>
+
+</template>

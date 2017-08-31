@@ -1,3 +1,15 @@
-<template name="newProduct">
-  {{> quickForm collection="Products" id="insertProductForm" type="insert"}}
+<template name="NewProduct">
+  <!-- {{> quickForm collection="Products" id="insertProductForm" type="insert"}} -->
+  <h4>Add new Product</h4>
+  {{#autoForm id="insertProductForm" type="insert" collection="Products"}}
+    {{> afQuickField name='name'}}
+    {{> afQuickField name='category' options=listCategories}}
+    {{> afQuickField name='unit'}}
+    {{> afQuickField name='weight'}}
+    {{> afQuickField name='totalQuantity'}}
+    {{> afQuickField name='lots'}}
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  {{/autoForm}}
 </template>

@@ -10,11 +10,15 @@ Router.route("/products/new", function() {
   this.render('NewProduct');
 });
 
-
-Router.route("/suppliers/new", function() {
-  this.render('NewSupplier');
-});
-
+//SETTINGS
 Router.route("/suppliers/", function() {
   this.render('SuppliersIndex');
+});
+
+Router.route("/uoms/", function() {
+  this.render('UoMIndex');
+});
+
+Router.route("/itemcategories/", function() {
+  this.render('ItemCategoriesIndex');
 });

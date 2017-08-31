@@ -1,0 +1,22 @@
+<template name="ItemCategoriesIndex">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 left-pane-bg">
+        <ul>
+          {{#each ItemCategories}}
+            {{>itemcategory}}
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-xs-6 col-md-4 right-pane-bg">
+        <h1>Add new Item Category</h1>
+        {{> quickForm collection="ItemCategories" id="insertItemCategoryForm" type="insert"}}</div>
+    </div>
+  </div>
+
+</template>
+
+<template name="itemcategory">
+  <li><h4>{{name}}</h4></li>
+
+</template>

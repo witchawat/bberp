@@ -1,0 +1,51 @@
+<template name="nav">
+  <!-- NAVBAR -->
+  <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        {{>navBrand}}
+      </div>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          {{>navItems}}
+        </ul>
+        <div class="navbar-text navbar-right">
+          {{> loginButtons align="right"}}
+        </div>
+      </nav>
+    </div>
+  </header>
+    <!-- NAVBAR -->
+  </template>
+
+<template name="navBrand">
+  <a href="/" class="navbar-brand">BB ERP v0.1</a>
+</template>
+
+<template name="navItems">
+  <li>
+    <a href="/products/new">New Product</a>
+  </li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Suppliers <b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="/suppliers/new">Add Suppliers</a></li>
+      <li><a href="/suppliers/">Suppliers List</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li><a href="#">Separated link</a></li>
+      <li><a href="#">One more separated link</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="#">Components</a>
+  </li>
+  <li>
+    <a href="#">JavaScript</a>
+  </li>
+</template>

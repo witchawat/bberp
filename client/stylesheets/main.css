@@ -1,0 +1,11 @@
+body {
+  margin-top: 50px;
+}
+
+.right-pane-bg {
+  background-color: paleturquoise;
+}
+
+.left-pane-bg {
+  background-color: gainsboro;
+}

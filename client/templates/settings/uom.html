@@ -1,24 +1,23 @@
-<template name="uom">
-  <li><h4>{{name}} - {{unit}} {{unitname}}</h4></li>
-
-</template>
-
-
 <template name="UoMIndex">
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-8 left-pane-bg">
         <ul>
-          {{#each UoMs}}
-            {{>uom}}
+          {{#each uoms}}
+            {{> list_uom}}
           {{/each}}
         </ul>
       </div>
       <div class="col-xs-6 col-md-4 right-pane-bg">
-        <h1>Add new UoM</h1>
-        <h3><i>ถุง - 50 kg</i></h3>
+        <h6>Add new UoM</h6>
+        <h6><i>Ex: ถุง - 50 kg</i></h6>
         {{> quickForm collection="UoM" id="insertUoMForm" type="insert"}}</div>
     </div>
   </div>
+
+</template>
+
+<template name="list_uom">
+  <li><p>{{name}} - {{unit}} {{unitname}}</p></li>
 
 </template>

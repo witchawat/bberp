@@ -1,5 +1,5 @@
 Template.SuppliersIndex.helpers({
-  Suppliers(){
+  suppliers(){
     return Suppliers.find({});
   },
 });

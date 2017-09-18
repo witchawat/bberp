@@ -1,5 +1,5 @@
 Template.UoMIndex.helpers({
-  UoMs(){
+  uoms(){
     return UoM.find({});
   },
 });

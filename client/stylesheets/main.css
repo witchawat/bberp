@@ -1,15 +1,27 @@
 body {
-  margin-top: 50px;
+  margin-top: 60px;
+}
+
+.form-inline > * {
+   margin:5px 3px;
 }
 
 .right-pane-bg {
   background-color: paleturquoise;
+  border-radius: 15px;
+
 }
 
 .left-pane-bg {
   background-color: gainsboro;
+  border-radius: 15px;
+
 }
 
-.maintemplate {
-  font-size: .7em;
+.hideCol {
+  display: none;
+}
+
+.sel2js {
+  width: 150px !important;
 }

@@ -2,21 +2,20 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-8 left-pane-bg">
-        <ul>
-          {{#each ItemCategories}}
-            {{>itemcategory}}
-          {{/each}}
-        </ul>
+        {{> reactiveTable collection=itemcategories}}
       </div>
+
       <div class="col-xs-6 col-md-4 right-pane-bg">
-        <h1>Add new Item Category</h1>
+        <h6>Add new Item Category</h6>
         {{> quickForm collection="ItemCategories" id="insertItemCategoryForm" type="insert"}}</div>
     </div>
   </div>
 
 </template>
 
-<template name="itemcategory">
-  <li><h4>{{name}}</h4></li>
+<template name="list_itemcategory">
+  <li>
+    <p>{{name}} <button class="btn btn-xs btn-danger delete">&times;</button></p>
+  </li>
 
 </template>

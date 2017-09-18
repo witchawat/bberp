@@ -4,6 +4,9 @@
 import '../imports/accounts-config.js';
 import '../imports/router.js';
 
+
+
+
 //AutoForm Hooks Configuration
 
 var hooksObject = {

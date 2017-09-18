@@ -1,0 +1,17 @@
+<template name="DocDateIndex">
+  <div class="container">
+      <div class="col-xs-12 col-md-8 left-pane-bg">
+        <ul>
+          {{#each docdate}}
+            <li><p>{{docName}} - {{docId}}</p></li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-xs-6 col-md-4 right-pane-bg">
+        <h6><strong>Insert Doc No</strong></h6>
+        {{> quickForm collection="DocDate" id="insertDocDateForm" type="update"}}
+      </div>
+  </div>
+
+
+</template>

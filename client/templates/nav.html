@@ -25,27 +25,35 @@
   </template>
 
 <template name="navBrand">
-  <a href="/" class="navbar-brand">BB ERP v0.1</a>
+  <a href="/" class="navbar-brand">BBiS v0.1</a>
 </template>
 
 <template name="navItems">
   <li>
-    <a href="/products/new">New Product</a>
+    <a href={{pathFor 'products.index'}} >Product List</a>
+  </li>
+  <li>
+    <a href={{pathFor 'products.new'}}>New Product</a>
+  </li>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Transfer<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href={{pathFor 'transfer.new.raw'}}>Transfer Raw Mats</a></li>
+      <li><a href={{pathFor 'transfer.new.pkg'}}>Transfer Packaging</a></li>
+    </ul>
+  </li>
+  <li>
+    <a href="{{pathFor 'receive.new'}}">Receive</a>
   </li>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Settings<b class="caret"></b></a>
     <ul class="dropdown-menu">
-      <li><a href="/suppliers/">Suppliers</a></li>
-      <li><a href="/uoms/">Unit of Measurement</a></li>
-      <li><a href="/itemcategories">Item Category</a></li>
-      <li><a href="/products/new">New Product</a></li>
-      <li><a href="#">One more separated link</a></li>
+      <li><a href={{pathFor 'suppliers.index'}}>Suppliers</a></li>
+      <li><a href={{pathFor 'uoms.index'}}>Unit of Measurement</a></li>
+      <li><a href={{pathFor 'itemcategories.index'}}>Item Category</a></li>
     </ul>
   </li>
   <li>
-    <a href="#">Components</a>
-  </li>
-  <li>
-    <a href="#">JavaScript</a>
+    <a href="{{pathFor 'receive.index'}}">Receive List</a>
   </li>
 </template>

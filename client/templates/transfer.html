@@ -1,0 +1,45 @@
+<template name="transferForm_Raw">
+  <form class="form-inline">
+    <span class="badge">Raw Materials</span>
+    <label for="txdate">Document Date</label>
+    <div class="input-group datetimepicker">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+      <input class="set-due-date form-control" name="txdate" type="text" placeholder="วัน/เดือน/ปี"/>
+      <hr />
+    </div>
+    <table class="table table-hover table-condensed">
+      <thead>
+        <td>Product Name</td>
+        <td>Available Quantity</td>
+        <td>Unit of Measurement</td>
+        <td>Transfer Out</td>
+      </thead>
+      <tbody>
+        {{#each products}}
+          {{> inputProduct}}
+        {{/each}}
+      </tbody>
+    </table>
+
+    <input type="submit" class="btn btn-embossed btn-primary" id="submitTransfer" value="Submit">
+    <input type="reset" class="btn btn-embossed btn-warning" value="Reset">
+  </form>
+</template>
+
+<template name="transferForm_Pkg">
+  <h1>Tx Pkg</h1>
+</template>
+
+<template name="inputProduct">
+  <tr>
+    <td>{{name}}</td>
+    <td>{{totalQuantity}}</td>
+    <td>{{uomid.name}}</td>
+    <td><input class="form-control input-xs" type="text" id={{_id}} placeholder="จำนวนที่เบิกออก"/></td>
+  </tr>
+  <!-- <div class="form-group">
+      <label for="{{_id}}">{{name}}</label>
+      <input class="form-control" type="text" id={{_id}} />
+  </div>
+  <br /> -->
+</template>

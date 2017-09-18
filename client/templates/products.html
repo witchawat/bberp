@@ -1,18 +1,89 @@
 <template name="NewProduct">
-  <!-- {{> quickForm collection="Products" id="insertProductForm" type="insert"}} -->
-  <h4>Add new Product</h4>
-  {{#autoForm id="insertProductForm" type="insert" collection="Products"}}
-  <fieldset>
-    {{> afQuickField name='name'}}
-    {{> afQuickField name='category' options=listCategories}}
-    {{> afQuickField name='unit' id="selectuom" options=listUoMs}}
-    {{> afQuickField name='weight' options=getWeight}}
-    {{> afQuickField name='totalQuantity'}}
-    {{> afQuickField name='lots'}}
-    <div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <button type="reset" class="btn btn-default">Reset</button>
+  <div class="container">
+  <h6>Add new Product</h6>
+  <form id="new-product-form">
+    <div class="form-group">
+    <label for="name">Product Name</label>
+    <input type="text" class="form-control prodname" name="name" placeholder="Product Name" />
+    <!-- Item Category -->
+    <label for="category">Item Category</label>
+    <!-- SELECT Item Category -->
+    <select class="sel2js form-control select select-primary select-block mbl" name="category">
+      {{#each itemcategories}}
+        {{> sel_itemcategory}}
+      {{/each}}
+    </select>
+    <!-- Suppliers MULTI-SELECT -->
+    <label for="prodsuppliers">Suppliers</label>
+    <select class="sel2js form-control multiselect multiselect-info" name="prodsuppliers" multiple="multiple">
+      {{#each suppliers}}
+        {{> sel_supplier}}
+      {{/each}}
+    </select>
+    <!-- UoM // Select and get _ID not value-->
+    <label for="uomid">Unit of Measurement</label>
+    <select class="sel2js form-control select select-primary select-block mbl" name="uomid">
+      {{#each uoms}}
+        {{> sel_uom}}
+      {{/each}}
+    </select>
+    <div class="text-center">
+      <button type="submit" class="btn btn-embossed btn-primary btn-wide" id="submitNewProduct" value="Submit">Submit</button>
+      <button type="reset" class="btn btn-embossed btn-warning btn-wide" value="Reset">Reset</button>
     </div>
-  </fieldset>
-  {{/autoForm}}
+    </div>
+  </form>
+  </div>
+  <!-- SELECT2 Script -->
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $(".sel2js").select2();
+    // Title Case for Product Name
+    $('.prodname').blur(function() {
+   var currVal = $(this).val();
+   currVal = currVal.toLowerCase().replace(/\b[a-z]/g, function(txtVal) {
+      return txtVal.toUpperCase();
+   });
+   $(this).val(currVal);
+  });
+  });
+  </script>
+</template>
+
+<!-- PAGE List Product (Reactive Table) -->
+<template name="listProducts">
+  {{> reactiveTable collection=products settings=settings}}
+</template>
+
+<!-- PAGE Show Individual Product -->
+<template name="showProduct">
+  <div class="container">
+      <div class="row productinfo">
+          <div class="col-md-3">
+            <h4><span class="label label-primary">{{this.name}}</span></h4>
+            <br />
+            <p>Available: {{this.totalQuantity}} {{this.uomid.name}}</p>
+            <p>Unit: {{this.uomid.unit}} {{this.uomid.unitname}}</p>
+          </div>
+          <div class="col-md-3">
+            <p>Suppliers: {{this.suppliers}}</p>
+          </div>
+          <div class="col-md-3"></div>
+      </div>
+
+      <div class="row productlot">
+          <div class="col-md-9">
+            {{> reactiveTable collection=data settings=lot_settings}}
+          </div>
+      </div>
+  </div>
+</template>
+
+
+
+<!-- Menu for ReactiveTable -->
+<template name="menuTemplate">
+  <a href="/products/{{_id}}"><i class="fa fa-id-card fa-lg fa-fw text-primary"></i>
+  </a>
+  <i class="fa fa-trash delete fa-lg fa-fw text-danger"></i>
 </template>

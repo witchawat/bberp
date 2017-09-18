@@ -1,0 +1,72 @@
+<template name="receiveForm">
+  <div class="container">
+    <h4>Receive Form</h4>
+    <form id="receive_form" class="form-inline">
+      <label for="docdate">Document Date: </label>
+      <div class="input-group datetimepicker text-primary">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        <input class="set-due-date form-control" name="docdate" type="text" placeholder="วัน/เดือน/ปี"/>
+        <hr />
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="supplier">Select Supplier: </label>
+        <select data-placeholder="Select an option" class="sel2js form-control select select-primary" id="supplier_sel" name="supplier">
+          {{#each suppliers}}
+            {{> sel_supplier}}
+          {{/each}}
+        </select>
+      </div>
+      <!-- Receive Lot Table -->
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Current Quantity</th>
+            <th>Unit of Measurement</th>
+            <th>Receive Quantity</th>
+            <th>Lot No</th>
+            <th>Exp Date (DD/MM/YYYY)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each items}}
+            {{> receiveRow2}}
+          {{/each}}
+          <!-- {{> Template.dynamic template="receiveRow" data=sup}} -->
+        </tbody>
+    </table>
+    <div class="text-center">
+      <button type="submit" class="btn btn-embossed btn-primary btn-wide" id="submitNewReceive" value="Submit">Submit</button>
+      <button type="reset" class="btn btn-embossed btn-warning btn-wide" value="Reset">Reset</button>
+    </div>
+    </form>
+  </div>
+</template>
+
+<template name="receiveRow2">
+  <tr id="{{_id}}">
+    <td class="prodname">{{name}}</td>
+    <td>{{totalQuantity}}</td>
+    <td class="uom" id="{{uomid._id}}">{{uomid.name}} ({{uomid.unit}} {{uomid.unitname}}/{{uomid.name}})</td>
+    <td><input type="text" class="form-control" id="quantity" name="quantity" placeholder="Quantity" /></td>
+    <td><input type="text" class="form-control" id="lotno" name="lotno" placeholder="Lot No XX/YYYY" /></td>
+    <td>
+      <div class="input-group datetimepicker text-primary">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+        <input class="set-due-date form-control" id="expdate" name="expdate" type="text" placeholder="วัน/เดือน/ปี"/>
+        <hr />
+      </div>
+    </td>
+  </tr>
+</template>
+
+<template name="receiveIndex">
+  {{> reactiveTable collection=receives settings=settings}}
+</template>
+
+<template name="receiveTableItem">
+  {{#each receiveItems}}
+    <p><span class="label label-default">{{this.name}}</span>  <span class="badge">{{this.quantity}}</span>&emsp;Lot No: {{lotno}}</p>
+  {{/each}}
+</template>

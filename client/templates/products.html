@@ -52,7 +52,7 @@
 
 <!-- PAGE List Product (Reactive Table) -->
 <template name="listProducts">
-  {{> reactiveTable collection=products settings=settings}}
+  {{> tabular table=TabularTables.Products class="table table-hover table-bordered table-condensed"}}
 </template>
 
 <!-- PAGE Show Individual Product -->
@@ -60,7 +60,7 @@
   <div class="container">
       <div class="row productinfo">
           <div class="col-md-3">
-            <h4><span class="label label-primary">{{this.name}}</span></h4>
+            <h1><span class="label label-primary">{{this.name}}</span></h1>
             <br />
             <p>Available: {{this.totalQuantity}} {{this.uomid.name}}</p>
             <p>Unit: {{this.uomid.unit}} {{this.uomid.unitname}}</p>
@@ -73,7 +73,7 @@
 
       <div class="row productlot">
           <div class="col-md-9">
-            {{> reactiveTable collection=data settings=lot_settings}}
+            {{> reactiveTable collection=productlot}}
           </div>
       </div>
   </div>

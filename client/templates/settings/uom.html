@@ -2,11 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-8 left-pane-bg">
-        <ul>
-          {{#each uoms}}
-            {{> list_uom}}
-          {{/each}}
-        </ul>
+        {{> tabular table=TabularTables.UnitofMeasurement class="table table-hover table-bordered table-condensed"}}
       </div>
       <div class="col-xs-6 col-md-4 right-pane-bg">
         <h6>Add new UoM</h6>
@@ -17,7 +13,6 @@
 
 </template>
 
-<template name="list_uom">
-  <li><p>{{name}} - {{unit}} {{unitname}}</p></li>
-
+<template name="UoM_deleteButton">
+  <i class="fa fa-trash delete fa-lg fa-fw text-danger"></i>
 </template>

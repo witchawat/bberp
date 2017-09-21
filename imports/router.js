@@ -44,6 +44,11 @@ Router.route("/receive/", function() {
 }, {name: 'receive.index'
 });
 
+Router.route("/lot/", function() {
+  this.render('lotIndex');
+}, {name: 'lot.index'
+});
+
 Router.route("/receive/new", function() {
   this.render('receiveForm');
 }, {name: 'receive.new'

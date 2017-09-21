@@ -75,3 +75,29 @@ Template.listProducts.events({
     Products.remove(this._id);
   },
 });
+
+Template.showProduct.helpers({
+  productlot: function(){
+    return Lots.find({"productid": this._id});
+  },
+  // settings: function(){
+  //   return {
+  //     rowsPerPage: 20,
+  //     showFilter: true,
+  //     class: 'table table-condensed table-hover',
+  //     fields: [
+  //       {key: 'name', label: 'Product Name'},
+  //       {key: 'category', label: 'Item Category'},
+  //       {key: 'suppliers', label: 'Suppliers'},
+  //       {key: 'totalQuantity', label: 'Total Quantity'},
+  //       {key: 'uomid.name', label: 'Unit of Measurement'},
+  //       {key: 'createdAt', label: 'Created At'},
+  //       // {key: 'menu', label: 'Menu', fn: function() {
+  //       //   return new Spacebars.SafeString('<a href="/products/+{_id.value}">View</a>  ')
+  //       //   }
+  //       // },
+  //       {key: 'menu', label: 'Menu', tmpl: Template.menuTemplate},
+  //     ]
+  //   };
+  // },
+})

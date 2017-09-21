@@ -99,7 +99,7 @@ Template.receiveForm.events({
             if(!error){
               // console.log(result);
               FlashMessages.sendSuccess("Receive has been added successfully!");
-              // Router.go('/receive');
+              Router.go('/receive');
             } else {
               console.log("error", error);
             }
